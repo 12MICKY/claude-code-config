@@ -4,23 +4,46 @@ Personal Claude Code configuration — statusline, hooks, settings.
 
 ## Statusline
 
-Script ที่ใช้แสดงข้อมูลใน Claude Code status bar:
-- Host / Model / Repo / Branch
-- Progress bar การใช้งาน rate limit (5h / 7d)
-- Token usage รวม
-- เวลาปัจจุบัน
+แสดงข้อมูลใน Claude Code status bar:
+- **Host / Model / Repo / Branch**
+- **Progress bar** rate limit (5h / 7d) สีเขียว→เหลือง→แดงตามการใช้งาน
+- **Token usage** รวมทั้งหมด
+- **เวลาปัจจุบัน**
 
-### Install
+### Install (one-line)
 
 ```bash
-cp statusline/statusline-command.sh ~/.claude/statusline-command.sh
-chmod +x ~/.claude/statusline-command.sh
+bash <(curl -fsSL https://raw.githubusercontent.com/12MICKY/claude-code-config/main/install.sh)
 ```
 
-แล้ว set ใน `~/.claude/settings.json`:
+### Manual install
 
-```json
-{
-  "statusCommand": "~/.claude/statusline-command.sh"
-}
+```bash
+# 1. Download script
+curl -fsSL https://raw.githubusercontent.com/12MICKY/claude-code-config/main/statusline/statusline-command.sh \
+  -o ~/.claude/statusline-command.sh
+chmod +x ~/.claude/statusline-command.sh
+
+# 2. Add to ~/.claude/settings.json
+# { "statusCommand": "~/.claude/statusline-command.sh" }
+```
+
+### Requirements
+
+- `jq` — JSON parsing
+- `git` — repo/branch detection
+- Terminal with true-color support
+
+```bash
+# Ubuntu/Debian
+sudo apt install jq
+
+# macOS
+brew install jq
+```
+
+### Preview
+
+```
+thiraphat@ThinkBook ❯ Sonnet 4.6 ❯ 12MICKY/claude-code-config main ❯ 5h:████░░░░░░42% ❯ 7d:██░░░░░░░░18% ❯ 14:30
 ```
