@@ -24,8 +24,13 @@ bash <(curl -fsSL https://raw.githubusercontent.com/12MICKY/claude-code-config/m
 This will:
 1. Download `statusline-command.sh` to `~/.claude/`
 2. Set `statusCommand` in `~/.claude/settings.json` automatically
+3. Install the `/setup-statusline` slash command to `~/.claude/commands/`
 
 Restart Claude Code to apply.
+
+### Slash command
+
+After installing, you can also type `/setup-statusline` inside any Claude Code session to reinstall or re-configure the statusline without leaving the terminal.
 
 ### Manual install
 

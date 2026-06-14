@@ -35,4 +35,10 @@ else:
     print('  statusCommand already set, skipped')
 PY
 
+# Install slash command so /setup-statusline works in any project
+COMMANDS_DIR="$CLAUDE_DIR/commands"
+mkdir -p "$COMMANDS_DIR"
+curl -fsSL "$REPO/.claude/commands/setup-statusline.md" -o "$COMMANDS_DIR/setup-statusline.md"
+echo "  /setup-statusline command installed"
+
 echo "==> Done! Restart Claude Code to see the statusline."
